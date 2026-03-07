@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "files.autoSave": "afterDelay",
+  "rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+  "rust-analyzer.inlayHints.genericParameterHints.lifetime.enable": true,
+  "rust-analyzer.inlayHints.genericParameterHints.type.enable": true,
+  "rust-analyzer.inlayHints.implicitDrops.enable": true,
+  "rust-analyzer.inlayHints.implicitSizedBoundHints.enable": true,
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+  "rust-analyzer.inlayHints.parameterHints.missingArguments.enable": true,
+  "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+  // "rust-analyzer.inlayHints.reborrowHints.enable": "always"
+}

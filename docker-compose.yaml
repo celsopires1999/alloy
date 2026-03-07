@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # command: .docker/start.sh
+    stop_signal: SIGKILL
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/home/rust/app
+    ports:
+      - 8000:8000
+    extra_hosts:
+      - host.docker.internal:host-gateway
