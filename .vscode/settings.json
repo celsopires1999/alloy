@@ -13,5 +13,6 @@
   "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
   "rust-analyzer.inlayHints.parameterHints.missingArguments.enable": true,
   "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+  "editor.inlayHints.enabled": "on",
   // "rust-analyzer.inlayHints.reborrowHints.enable": "always"
 }

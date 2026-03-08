@@ -11,29 +11,22 @@
             "cargo": {
                 "args": [
                     "run",
-                    "--bin=fearlessconcurrency",
-                    "--package=fearlessconcurrency"
+                    "--bin=alloy",
+                    "--package=alloy"
                 ]
-            },
-            "args": [
-                "BODY",
-                "poem.txt",
-            ],
-            "env": {
-                "IGNORE_CASE": "1"
             }
         },
         {
-            "name": "Debug unit tests in executable",
+            "name": "Debug lib tests",
             "type": "lldb",
             "request": "launch",
             "cargo": {
                 "args": [
                     "test",
-                    "--bin=minigrep",
-                    "--package=minigrep"
+                    "--lib",
+                    "--package=alloy"
                 ]
             }
-        },
+        }
     ]
 }
