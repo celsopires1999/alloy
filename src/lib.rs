@@ -1,5 +1,5 @@
 mod budget;
-mod inflation;
+pub mod inflation;
 mod rounding;
 
 pub use budget::{Allocation, BudgetAllocation, Currency};

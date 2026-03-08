@@ -1,3 +1,3 @@
 fn main() {
-    println!("Alloy");
+    println!("Main")
 }
