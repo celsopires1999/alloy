@@ -2,11 +2,15 @@ use super::*;
 use rust_decimal::Decimal;
 
 #[test]
-fn test_annual_inflation_entry_creation() {
-    let entry = AnnualInflationEntry::new(2023, Decimal::from_str_exact("1.22").unwrap());
+fn test_annual_inflation_entry_creation_with_builder() {
+    let entry = AnnualInflationEntry::builder()
+        .with_year(2023)
+        .with_inflation("1.22")
+        .build()
+        .unwrap();
 
-    assert_eq!(entry.year, 2023);
-    assert_eq!(entry.inflation, Decimal::from_str_exact("1.22").unwrap());
+    assert_eq!(entry.get_year(), 2023);
+    assert_eq!(entry.get_inflation(), "1.22");
 }
 
 #[test]
@@ -154,15 +158,17 @@ fn test_serialization() {
 
     // Serialize to JSON
     let json = serde_json::to_string_pretty(&inflation).unwrap();
-    println!("Serialized Inflation:\n{}", json);
 
     // Deserialize back
     let deserialized: AnnualInflation = serde_json::from_str(&json).unwrap();
     assert_eq!(deserialized.entries().len(), inflation.entries().len());
-    assert_eq!(deserialized.entries()[0].year, inflation.entries()[0].year);
     assert_eq!(
-        deserialized.entries()[0].inflation,
-        inflation.entries()[0].inflation
+        deserialized.entries()[0].get_year(),
+        inflation.entries()[0].get_year()
+    );
+    assert_eq!(
+        deserialized.entries()[0].get_inflation(),
+        inflation.entries()[0].get_inflation()
     );
 }
 
@@ -201,8 +207,8 @@ fn test_entries_getter() {
     let retrieved = inflation.entries();
 
     assert_eq!(retrieved.len(), 2);
-    assert_eq!(retrieved[0].year, 2023);
-    assert_eq!(retrieved[1].year, 2024);
+    assert_eq!(retrieved[0].get_year(), 2023);
+    assert_eq!(retrieved[1].get_year(), 2024);
 }
 
 #[test]

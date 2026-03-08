@@ -4,6 +4,20 @@
 /// in financial calculations and allocations.
 use rust_decimal::Decimal;
 
+/// Formats a Decimal value as a string with exactly 2 decimal places
+///
+/// Ensures consistent string representation for API responses.
+/// Example: Decimal(1095) → "1095.00", Decimal(1095.5) → "1095.50"
+///
+/// # Arguments
+/// * `amount` - The Decimal value to format
+///
+/// # Returns
+/// * String representation with exactly 2 decimal places
+pub fn format_amount(amount: Decimal) -> String {
+    format!("{:.2}", amount)
+}
+
 /// Rounds a Decimal value to 2 decimal places using RoundHalfUp strategy
 ///
 /// This is the standard commercial rounding: 0.5 and above rounds up.
